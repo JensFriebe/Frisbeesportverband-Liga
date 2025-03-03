@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indoor Open Ligen</title>
+    <style>
+        body {
+            
+            font-family: "Open Sans", arial, helvetica, sans-serif;
+            background-color: #f0f0f5;
+            font-size: 17px;
+            padding: 20px;
+            margin: 0;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: gray;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            text-align: center;
+            color: #333;
+        }
+
+        .league-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            width: 100%;
+            max-width: 50000px;
+            margin: 0 auto;
+        }
+
+        .pyramid-level {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            width: 100%;
+            position: relative;
+        }
+
+        .table-container {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+        }
+
+        .liga-1 { width: 1000px; }
+        .liga-2 { width: 800px; }
+        .liga-3, .liga-4 { width: 800px; }
+        .sub-league { width: 100%; margin-top: 10px; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+            position: relative;
+            cursor: pointer;
+        }
+
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        tr:hover { background-color: #f1f1f1; }
+
+        @media (max-width: 1200px) {
+            .liga-1, .liga-2, .liga-3, .liga-4 {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="league-container">
+        <!-- 1. Liga -->
+        <div class="pyramid-level">
+            <div class="table-container liga-1">
+                <h2><a href="{{ data['1_liga'].url }}" target="_blank">1. Liga</a></h2>
+                {% set league_data = data['1_liga'] %}
+                {% include 'league_table.html' %}
+            </div>
+        </div>
+
+        <!-- 2. Ligen -->
+        <div class="pyramid-level">
+            <div class="table-container liga-2">
+                <h2><a href="{{ data['2_liga_nord'].url }}" target="_blank">2. Liga Nord</a></h2>
+                {% set league_data = data['2_liga_nord'] %}
+                {% include 'league_table.html' %}
+            </div>
+            <div class="table-container liga-2">
+                <h2><a href="{{ data['2_liga_sued'].url }}" target="_blank">2. Liga Süd</a></h2>
+                {% set league_data = data['2_liga_sued'] %}
+                {% include 'league_table.html' %}
+            </div>
+        </div>
+
+        <!-- 3. Ligen -->
+        <div class="pyramid-level">
+            <div class="table-container liga-3">
+                {% if '3_liga_nord_west' in data %}
+                <h2><a href="{{ data['3_liga_nord_west'].url }}" target="_blank">3. Liga Nord-West</a></h2>
+                {% set league_data = data['3_liga_nord_west'] %}
+                {% include 'league_table.html' %}
+                {% endif %}
+                <div class="sub-league">
+                    {% if '4_liga_nord_west' in data %}
+                    <h2><a href="{{ data['4_liga_nord_west'].url }}" target="_blank">4. Liga Nord-West</a></h2>
+                    {% set league_data = data['4_liga_nord_west'] %}
+                    {% include 'league_table.html' %}
+                    {% endif %}
+                    <div class="sub-league">
+                        {% if '5_liga_nord_west' in data %}
+                        <h2><a href="{{ data['5_liga_nord_west'].url }}" target="_blank">5. Liga Nord-West</a></h2>
+                        {% set league_data = data['5_liga_nord_west'] %}
+                        {% include 'league_table.html' %}
+                        {% endif %}
+                        <div class="sub-league">
+                            {% if '6_liga_nord_west' in data %}
+                            <h2><a href="{{ data['6_liga_nord_west'].url }}" target="_blank">6. Liga Nord-West</a></h2>
+                            {% set league_data = data['6_liga_nord_west'] %}
+                            {% include 'league_table.html' %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container liga-3">
+                {% if '3_liga_nord_ost' in data %}
+                <h2><a href="{{ data['3_liga_nord_ost'].url }}" target="_blank">3. Liga Nord-Ost</a></h2>
+                {% set league_data = data['3_liga_nord_ost'] %}
+                {% include 'league_table.html' %}
+                {% endif %}
+                <div class="sub-league">
+                    {% if '4_liga_nord_ost' in data %}
+                    <h2><a href="{{ data['4_liga_nord_ost'].url }}" target="_blank">4. Liga Nord-Ost</a></h2>
+                    {% set league_data = data['4_liga_nord_ost'] %}
+                    {% include 'league_table.html' %}
+                    {% endif %}
+                    <div class="sub-league">
+                        {% if '5_liga_nord_ost' in data %}
+                        <h2><a href="{{ data['5_liga_nord_ost'].url }}" target="_blank">5. Liga Nord-Ost</a></h2>
+                        {% set league_data = data['5_liga_nord_ost'] %}
+                        {% include 'league_table.html' %}
+                        {% endif %}
+                        <div class="sub-league">
+                            {% if '6_liga_nord_ost' in data %}
+                            <h2><a href="{{ data['6_liga_nord_ost'].url }}" target="_blank">6. Liga Nord-Ost</a></h2>
+                            {% set league_data = data['6_liga_nord_ost'] %}
+                            {% include 'league_table.html' %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container liga-3">
+                {% if '3_liga_sued_west' in data %}
+                <h2><a href="{{ data['3_liga_sued_west'].url }}" target="_blank">3. Liga Süd-West</a></h2>
+                {% set league_data = data['3_liga_sued_west'] %}
+                {% include 'league_table.html' %}
+                {% endif %}
+                <div class="sub-league">
+                    {% if '4_liga_sued_west' in data %}
+                    <h2><a href="{{ data['4_liga_sued_west'].url }}" target="_blank">4. Liga Süd-West</a></h2>
+                    {% set league_data = data['4_liga_sued_west'] %}
+                    {% include 'league_table.html' %}
+                    {% endif %}
+                    <div class="sub-league">
+                        {% if '5_liga_sued_west' in data %}
+                        <h2><a href="{{ data['5_liga_sued_west'].url }}" target="_blank">5. Liga Süd-West</a></h2>
+                        {% set league_data = data['5_liga_sued_west'] %}
+                        {% include 'league_table.html' %}
+                        {% endif %}
+                        <div class="sub-league">
+                            {% if '6_liga_sued_west' in data %}
+                            <h2><a href="{{ data['6_liga_sued_west'].url }}" target="_blank">6. Liga Süd-West</a></h2>
+                            {% set league_data = data['6_liga_sued_west'] %}
+                            {% include 'league_table.html' %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container liga-3">
+                {% if '3_liga_sued_ost' in data %}
+                <h2><a href="{{ data['3_liga_sued_ost'].url }}" target="_blank">3. Liga Süd-Ost</a></h2>
+                {% set league_data = data['3_liga_sued_ost'] %}
+                {% include 'league_table.html' %}
+                {% endif %}
+                <div class="sub-league">
+                    {% if '4_liga_sued_ost' in data %}
+                    <h2><a href="{{ data['4_liga_sued_ost'].url }}" target="_blank">4. Liga Süd-Ost</a></h2>
+                    {% set league_data = data['4_liga_sued_ost'] %}
+                    {% include 'league_table.html' %}
+                    {% endif %}
+                    <div class="sub-league">
+                        {% if '5_liga_sued_ost' in data %}
+                        <h2><a href="{{ data['5_liga_sued_ost'].url }}" target="_blank">5. Liga Süd-Ost</a></h2>
+                        {% set league_data = data['5_liga_sued_ost'] %}
+                        {% include 'league_table.html' %}
+                        {% endif %}
+                        <div class="sub-league">
+                            {% if '6_liga_sued_ost' in data %}
+                            <h2><a href="{{ data['6_liga_sued_ost'].url }}" target="_blank">6. Liga Süd-Ost</a></h2>
+                            {% set league_data = data['6_liga_sued_ost'] %}
+                            {% include 'league_table.html' %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

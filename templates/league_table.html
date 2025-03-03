@@ -1,0 +1,23 @@
+<table>
+    <thead>
+        <tr>
+            {% for header in league_data.headers %}
+                <th>{{ header }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in league_data.rows %}
+            {% set row_index = loop.index0 %}
+            {% set total_rows = league_data.rows|length %}
+            <tr 
+                {% if row_index < league_data.top_green %} style="background-color: #d4edda;" {% endif %}
+                {% if row_index >= total_rows - league_data.bottom_red %} style="background-color: #f8d7da;" {% endif %}
+            >
+                {% for cell in row %}
+                    <td>{{ cell | safe }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
