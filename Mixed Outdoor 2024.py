@@ -27,9 +27,9 @@ leagues = {
  #   '5_liga_sued_ost': ('5. Liga Süd-Ost', 'https://scores.frisbeesportverband.de/?view=seriesstatus&series=1722', 2, 2),
 
  #   '6_liga_nord_west': ('6. Liga Nord-West', 'https://scores.frisbeesportverband.de/?view=seriesstatus&series=1723', 1, 0),
-   # '6_liga_nord_ost': ('6. Liga Nord-Ost', 'https://scores.frisbeesportverband.de/?view=seriesstatus&series=1723', 1, 0),
-   # '6_liga_sued_west': ('6. Liga Süd-West', 'https://scores.frisbeesportverband.de/?view=seriesstatus&series=1723', 1, 0),
-   # '6_liga_sued_ost': ('6. Liga Süd-Ost', 'https://scores.frisbeesportverband.de/?view=seriesstatus&series=1723', 1, 0),
+ #   '6_liga_nord_ost': ('6. Liga Nord-Ost', 'https://scores.frisbeesportverband.de/?view=seriesstatus&series=1723', 1, 0),
+ #   '6_liga_sued_west': ('6. Liga Süd-West', 'https://scores.frisbeesportverband.de/?view=seriesstatus&series=1723', 1, 0),
+ #   '6_liga_sued_ost': ('6. Liga Süd-Ost', 'https://scores.frisbeesportverband.de/?view=seriesstatus&series=1723', 1, 0),
 }
 
 def scrape_table(url):
